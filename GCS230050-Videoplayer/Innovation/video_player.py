@@ -439,7 +439,7 @@ class VideoPlayer():
             lib.library[id].total_of_rating -= db.user_rate[id]
             lib.library[id].total_of_rating += new_rating
             db.user_rate[id] = new_rating            
-            lib.library[id].rating = lib.library[id].total_of_rating / lib.library[id].number_of_rate_time
+            lib.library[id].rating = round(lib.library[id].total_of_rating / lib.library[id].number_of_rate_time)
         db.save_data()
         lib.save_data()
         self.update_star_buttons(rating)
