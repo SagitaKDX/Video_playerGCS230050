@@ -101,7 +101,7 @@ class update_videos():
                         lib.library[key].total_of_rating -= db.user_rate[key]
                         lib.library[key].total_of_rating += new_rating
                         db.user_rate[key] = new_rating            
-                        lib.library[key].rating = lib.library[key].total_of_rating / lib.library[key].number_of_rate_time
+                        lib.library[key].rating = round(lib.library[key].total_of_rating / lib.library[key].number_of_rate_time)
                     db.save_data()
                     self.status_label.configure(text = "Rating updated!")
                     # show the name , rating and number of play count
